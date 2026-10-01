@@ -16,11 +16,12 @@
     },
     {
       id: "radar", group: "trabajador", name: "Radar", role: "Busca clientes", money: true, shirt: "#6fbf73",
-      que: "Radar busca gente que hoy pide ayuda para automatizar tareas y te deja el mensaje escrito.",
-      como: "Pulsa Buscar clientes. Los que encuentre salen en Ingresos. Tú copias el mensaje y lo envías. Radar no cobra: cobra la persona que responde.",
-      ejemplo: "radar",
-      cmds: ["radar", "leads"],
+      que: "Radar busca gente que pide ayuda y te manda la oferta por Telegram. Tú solo pulsas Aceptar o Rechazar.",
+      como: "Revisar ofertas te manda hasta 3. El mensaje dice: esto se puede hacer con lo que ya tienes, te lo añado, ¿te vale? Aceptar la guarda. No se publica sola en Instagram ni en el foro.",
+      ejemplo: "ofertas",
+      cmds: ["radar", "leads", "ofertas"],
       actions: [
+        { label: "Revisar ofertas", cmd: "ofertas" },
         { label: "Buscar clientes", cmd: "radar" },
         { label: "Ver mis clientes", cmd: "leads" }
       ]

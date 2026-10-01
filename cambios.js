@@ -3,6 +3,11 @@
   var ITEMS = [
     {
       cuando: "1 de octubre, de madrugada",
+      titulo: "Ofertas con Aceptar y Rechazar",
+      texto: "Escribe ofertas. Te llegan por Telegram, de tres en tres. El mensaje al cliente dice que se puede hacer con lo que ya tiene y pregunta si le vale. Aceptar la guarda. Rechazar la quita. No se publica sola en Instagram ni en el foro, porque RADIA no tiene esas cuentas."
+    },
+    {
+      cuando: "1 de octubre, de madrugada",
       titulo: "Para cuando despiertes",
       texto: "Esta noche entraron siete trabajadores y se arregló la mini app: el dibujo ya no tapa el nombre del botón. Ciérrala y ábrela otra vez con Abrir RADIA para verlo."
     },
