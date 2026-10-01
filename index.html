@@ -7,87 +7,30 @@
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <style>
   :root {
-    --bg: #12140f;
-    --card: #1c201a;
-    --ink: #f3efe6;
-    --muted: #a39c90;
-    --line: #3b4136;
+    --bg: #05070f;
+    --card: #0f1528;
+    --ink: #eaf4ff;
+    --muted: #8fa6c8;
+    --line: #2c3a60;
     --amber: #e2a45c;
     --green: #8fd18a;
   }
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   html, body { margin: 0; max-width: 100%; overflow-x: hidden; background: var(--bg); color: var(--ink); font: 15px/1.4 "Segoe UI", system-ui, sans-serif; }
-  body { min-height: 100vh; padding: 14px 14px calc(20px + env(safe-area-inset-bottom)); }
+  body { min-height: 100vh; padding: 12px 10px calc(20px + env(safe-area-inset-bottom)); }
   header { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; margin-bottom: 12px; }
   h1 { margin: 0; font-family: Georgia, serif; font-weight: normal; letter-spacing: .14em; font-size: 22px; }
   .sub { color: var(--muted); font-size: 13px; margin-top: 2px; }
   .linkish { font: inherit; color: var(--ink); background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 8px 12px; cursor: pointer; }
   .note { display: none; color: #ffcf8a; font-size: 13px; margin: 0 0 12px; }
-  .core {
-    display: flex; align-items: center; gap: 12px; margin: 0 0 14px; padding: 12px;
-    background: var(--card); border: 1px solid var(--line); border-radius: 18px;
-  }
-  .orb {
-    width: 54px; height: 54px; border-radius: 50%; flex: none;
-    background: radial-gradient(circle at 40% 40%, #fff6e4, var(--amber) 42%, #6a4a22 72%);
-    box-shadow: 0 0 18px rgba(226,164,92,.45);
-  }
-  .core b { display: block; letter-spacing: .12em; font-size: 13px; }
-  .core.remote { border-color: #8fd0c6; box-shadow: 0 0 22px rgba(143,208,198,.35); }
-  .core.remote .orb { animation: glow 1s ease-in-out infinite; background: radial-gradient(circle at 40% 40%, #f3fffb, #8fd0c6 45%, #24584e 75%); }
-  @keyframes glow { 50% { transform: scale(1.06); box-shadow: 0 0 26px rgba(143,208,198,.8); } }
-  .stats { display: grid; width: 100%; min-width: 0; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-bottom: 14px; }
-  .stat { min-width: 0; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 10px 4px; text-align: center; }
-  .stat b { display: block; font-size: 20px; color: var(--green); }
-  .stat span { display: block; color: var(--muted); font-size: 11px; overflow-wrap: anywhere; }
+  .stats { display: grid; width: 100%; min-width: 0; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; grid-column: 1 / -1; }
+  .stat { min-width: 0; background: rgba(57,245,154,.06); border: 1px solid rgba(57,245,154,.3); border-radius: 12px; padding: 8px 4px; text-align: center; }
+  .stat b { display: block; font-size: 20px; color: #39f59a; text-shadow: 0 0 10px rgba(57,245,154,.5); }
+  #ciudad { margin-bottom: 16px; }
   .zone { margin-bottom: 16px; }
-  .zone h2 { margin: 0 0 4px; font-size: 15px; letter-spacing: .08em; text-transform: uppercase; color: var(--amber); }
+  .zone h2 { margin: 0 0 4px; font-size: 14px; letter-spacing: .12em; text-transform: uppercase; color: #4f9dff; }
   .zone .hint { margin: 0 0 10px; color: var(--muted); font-size: 13px; }
-  .grid { display: grid; width: 100%; min-width: 0; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
-  .who {
-    position: relative; display: flex; flex-direction: column; align-items: center;
-    width: 100%; min-width: 0; max-width: 100%; overflow: hidden;
-    text-align: center; color: var(--ink); background: var(--card);
-    border: 1px solid var(--line); border-radius: 16px; padding: 8px 6px 10px; cursor: pointer;
-  }
-  .who.money { border-color: #3f6a3c; }
-  .who b, .who em { position: relative; z-index: 2; display: block; width: 100%; max-width: 100%; white-space: normal; overflow-wrap: anywhere; word-break: break-word; }
-  .who b { display: block; font-size: 14px; }
-  .who em { display: block; font-style: normal; color: var(--muted); font-size: 12px; }
-  .scene { display: block; position: relative; width: 100%; height: 78px; margin-bottom: 6px; overflow: hidden; flex: none; }
-  .desk, .shelf { position: absolute; left: 18%; right: 18%; bottom: 8px; height: 7px; border-radius: 4px; background: #5a5144; }
-  .person {
-    position: absolute; left: 50%; bottom: 12px; width: 44px; transform: translateX(-50%);
-  }
-  .head { display: block; width: 22px; height: 22px; border-radius: 50%; background: #f3d2b5; margin: 0 auto; position: relative; }
-  .head::before, .head::after {
-    content: ""; position: absolute; top: 8px; width: 3px; height: 3px; border-radius: 50%; background: #2b241c;
-  }
-  .head::before { left: 5px; } .head::after { right: 5px; }
-  .torso { display: block; width: 26px; height: 18px; border-radius: 8px 8px 4px 4px; background: var(--shirt, #e2a45c); margin: 2px auto 0; box-shadow: inset 0 -3px 0 rgba(0,0,0,.12); }
-  .legs { display: flex; justify-content: center; gap: 4px; margin-top: 1px; }
-  .legs i { display: block; width: 6px; height: 12px; border-radius: 3px; background: #3d342c; }
-  .who.busy .legs i { animation: step .28s ease-in-out infinite alternate; }
-  .who.busy .legs i:last-child { animation-delay: .14s; }
-  @keyframes step { to { transform: scaleY(.5) translateY(3px); } }
-  .who.busy .person { animation: pace 1.5s ease-in-out infinite; }
-  @keyframes pace {
-    0%, 100% { transform: translateX(-50%); }
-    50% { transform: translateX(calc(-50% + 26px)) translateY(-8px); }
-  }
-  .toy {
-    position: absolute; left: 50%; bottom: 16px; width: 28px; height: 28px; border-radius: 8px;
-    transform: translateX(-50%); background: #2a3144 center/18px no-repeat;
-  }
-  .who.busy .toy { animation: wobble .8s ease-in-out infinite; }
-  @keyframes wobble { 50% { transform: translateX(-50%) translateY(-8px) rotate(-8deg); } }
-  .toy.clock { background-color: #243044; box-shadow: inset 0 0 0 3px #8fd0c6; border-radius: 50%; }
-  .toy.cloud { background: #d7e4ef; border-radius: 16px; }
-  .toy.ball { background: radial-gradient(circle at 40% 40%, #fff, #e2a45c 60%); border-radius: 50%; }
-  .toy.note { background: #f4efe4; border-radius: 3px 8px 8px 3px; }
-  .toy.check { background: #243028; box-shadow: inset 0 0 0 2px #8fd18a; }
-  .toy.coin { background: #e2a45c; border-radius: 50%; }
-  .toy.heart { background: #e07b6a; border-radius: 50% 50% 46% 46%; }
+  .stat span { display: block; color: var(--muted); font-size: 11px; overflow-wrap: anywhere; }
   .orders { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 12px; }
   .orders h2 { margin: 0 0 8px; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
   .order { display: flex; gap: 8px; padding: 8px 0; border-top: 1px solid #2a2e26; font-size: 13px; }
@@ -116,33 +59,17 @@
   <header>
     <div>
       <h1>RADIA</h1>
-      <div class="sub" id="at">Tu oficina en el móvil</div>
+      <div class="sub" id="at">Cada sala es un equipo. El que brilla, trabaja.</div>
     </div>
     <button type="button" class="linkish" id="b-guia">Tutoriales</button>
   </header>
-  <div class="core" id="core">
-    <div class="orb"></div>
-    <div>
-      <b>NÚCLEO</b>
-      <div class="sub" id="core-state">En casa, quieto</div>
-    </div>
-  </div>
   <p class="note" id="note">Este botón solo llega al chat si abres RADIA desde Telegram.</p>
-  <div class="stats">
+  <div class="stats" id="stats">
     <div class="stat"><b id="open">–</b><span>clientes nuevos</span></div>
     <div class="stat"><b id="sent">–</b><span>escritos</span></div>
     <div class="stat"><b id="eur">–</b><span>cobrado mes</span></div>
   </div>
-  <section class="zone" id="zona-trab">
-    <h2>Trabajadores</h2>
-    <p class="hint">Personas. Si trabajan, se mueven. Si no, están en su mesa.</p>
-    <div class="grid" id="grid-trab"></div>
-  </section>
-  <section class="zone" id="zona-gad">
-    <h2>Gadgets</h2>
-    <p class="hint">Utilidades del día. El tiempo, los avisos, las notas. No son personas.</p>
-    <div class="grid" id="grid-gad"></div>
-  </section>
+  <div id="ciudad"></div>
   <section class="zone" id="zona-cambios">
     <h2>Cambios de desarrollo</h2>
     <p class="hint">Lo que quedó hecho sin que pulses nada. El mismo texto está en el ordenador, pestaña Cambios.</p>
@@ -167,11 +94,12 @@
 
 <script src="guia.js"></script>
 <script src="cambios.js"></script>
+<script src="ciudad.js"></script>
 <script>
   RadiaGuia.init({ page: "mini", store: "radia-guia-mini" });
   if (window.RadiaCambios) RadiaCambios.fill("cambios-list");
   var tg = window.Telegram && window.Telegram.WebApp;
-  if (tg) { tg.ready(); tg.expand(); try { tg.setHeaderColor("#12140f"); tg.setBackgroundColor("#12140f"); } catch (e) {} }
+  if (tg) { tg.ready(); tg.expand(); try { tg.setHeaderColor("#05070f"); tg.setBackgroundColor("#05070f"); } catch (e) {} }
   function telegramHere() {
     try {
       if (window.TelegramWebviewProxy || window.TelegramWebviewProxyProto) return true;
@@ -190,18 +118,11 @@
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
     });
   }
-  function figura(it) {
-    if (it.group === "gadget") return '<span class="scene"><span class="shelf"></span><span class="toy ' + esc(it.toy || "") + '"></span></span>';
-    return '<span class="scene"><span class="desk"></span><span class="person" style="--shirt:' + esc(it.shirt || "#e2a45c") + '"><span class="head"></span><span class="torso"></span><span class="legs"><i></i><i></i></span></span></span>';
-  }
-  RadiaGuia.stations().forEach(function (it) {
-    var b = document.createElement("button");
-    b.type = "button";
-    b.className = "who" + (it.money ? " money" : "");
-    b.id = "who-" + it.id;
-    b.innerHTML = figura(it) + "<b>" + esc(it.name) + "</b><em>" + esc(it.role || "") + "</em>";
-    b.addEventListener("click", function () { openSheet(it); });
-    document.getElementById(it.group === "gadget" ? "grid-gad" : "grid-trab").appendChild(b);
+  RadiaCiudad.build(document.getElementById("ciudad"), {
+    prefix: "who-", coreId: "core", stateId: "core-state", coreName: "NÚCLEO", stateText: "En casa, quieto",
+    hudExtra: document.getElementById("stats"),
+    onPick: function (it) { openSheet(it); },
+    onCore: function () { RadiaGuia.open("ciudad-mini"); }
   });
 
   function readState() {

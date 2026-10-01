@@ -40,15 +40,15 @@
       ejemplo: "hecho"
     },
     {
-      id: "intro-pc", page: "pc", group: "meta", name: "Tu oficina",
-      que: "Esto es el cerebro de RADIA en tu ordenador. Arriba están los trabajadores: personas que hacen un trabajo. Abajo están los gadgets: cosas de cada día, como el clima o las notas. No son personas.",
-      como: "Pulsa una mesa para ver qué hace. Cuando alguien trabaja, su personaje se mueve. Al terminar, vuelve a su sitio. El botón Tutoriales abre estas explicaciones cuando quieras.",
+      id: "ciudad-pc", page: "pc", group: "meta", name: "Tu ciudad",
+      que: "Esto es RADIA en tu ordenador, como una ciudad. Cada sala de color es un equipo: Dinero, Ideas, Casa, Preguntar y Taller. A los lados están los gadgets: reloj, clima, notas.",
+      como: "El que trabaja brilla y se mueve. El que no, está quieto. Toca un muñeco para ver qué hace y usarlo. Arriba ves la hora, el clima y cuántos trabajan.",
       ejemplo: "Pulsa Radar y luego Buscar ahora."
     },
     {
-      id: "intro-mini", page: "mini", group: "meta", name: "La mini app",
-      que: "Esto es RADIA en el móvil. Los trabajadores son personas. Los gadgets son utilidades del día, como el tiempo o la lista. Están separados.",
-      como: "Pulsa a alguien, lee para qué sirve y pulsa el botón. Si hace falta un texto, escríbelo y mándalo. Se lo lleva Telegram. Tutoriales guarda estas fichas.",
+      id: "ciudad-mini", page: "mini", group: "meta", name: "La mini app",
+      que: "Esto es RADIA en el móvil, como una ciudad. Arriba: hora, clima y gadgets. Debajo, las salas de color: Dinero, Ideas, Casa, Preguntar y Taller.",
+      como: "El que trabaja brilla y se mueve. El que no, está quieto. Toca un muñeco, lee para qué sirve y pulsa el botón. Se lo lleva Telegram.",
       ejemplo: "Pulsa Clima. No tienes que escribir nada."
     },
     {

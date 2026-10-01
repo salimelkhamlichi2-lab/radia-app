@@ -2,6 +2,11 @@
 (function (w) {
   var ITEMS = [
     {
+      cuando: "1 de octubre, 17:15",
+      titulo: "Nueva pantalla: la ciudad",
+      texto: "Arriba: la hora, el clima y cuántos trabajan. A los lados: los gadgets. En el centro, 5 salas de color: Dinero, Ideas, Casa, Preguntar y Taller. El que trabaja brilla y se mueve. El que no, está quieto. Toca un muñeco para usarlo. Igual en el PC y en el móvil."
+    },
+    {
       cuando: "1 de octubre, por la tarde",
       titulo: "Empieza por el mapa",
       texto: "Escribe mapa. Ahí está quién pasa el trabajo a quién: Radar guarda, Guía es la frase, a las 20:00 Hecho te manda hasta 3, tú aceptas y copias. Casa es la mañana. Creador propone y Lente mira. Juego diseña y no cobra. Si una no la entiendes: ayuda y su nombre."
