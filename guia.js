@@ -175,6 +175,60 @@
       actions: [{ label: "Estado", cmd: "vigia" }]
     },
     {
+      id: "creador", group: "trabajador", name: "Creador", role: "Ideas nuevas", shirt: "#e85d8c",
+      que: "Creador es el director creativo. Cada hora, de 9 a 20, propone una idea nueva si no hay otra esperando. Lente la mira antes. Si no vale, no te molesta.",
+      como: "Si vale, te llega por Telegram. Aceptar la pone en cola para Cursor. Rechazar la tira. No la construye hasta que pulses Aceptar. Si el ordenador está apagado, esa hora no pasa.",
+      ejemplo: "creador",
+      cmds: ["creador"],
+      actions: [{ label: "Pedir una idea", cmd: "creador" }]
+    },
+    {
+      id: "guia", group: "trabajador", name: "Guía", role: "La frase", shirt: "#7dcea0",
+      que: "Guía guarda la frase que sale en las ofertas. La de ahora dice que se puede hacer con lo que ya tienes, que se lo añades, y si le vale.",
+      como: "Pulsa Ver la frase. Para cambiarla, escribe la nueva. La siguiente oferta ya la usa. No es el tutorial.",
+      ejemplo: "guia Esto se puede hacer con lo que ya tienes. Te lo añado yo. ¿Te vale?",
+      cmds: ["guia"],
+      actions: [
+        { label: "Ver la frase", cmd: "guia" },
+        { label: "Cambiarla", ask: "La frase nueva", prefix: "guia ", placeholder: "Esto se puede hacer con lo que ya tienes. Te lo añado yo. ¿Te vale?" }
+      ]
+    },
+    {
+      id: "ficha", group: "trabajador", name: "Ficha", role: "Un cliente", shirt: "#5dade2",
+      que: "Ficha enseña un cliente: qué pidió, la oferta, el estado y el dinero.",
+      como: "Ver fichas enseña las más nuevas. ficha 1 abre la primera de esa lista.",
+      ejemplo: "ficha 1",
+      cmds: ["ficha"],
+      actions: [
+        { label: "Ver fichas", cmd: "ficha" },
+        { label: "Abrir la 1", cmd: "ficha 1" }
+      ]
+    },
+    {
+      id: "turno", group: "trabajador", name: "Turno", role: "Cada media hora", shirt: "#f5b041",
+      que: "Turno manda una sola oferta nueva por Telegram, cada media hora de 9 a 20. Tú pulsas Aceptar o Rechazar.",
+      como: "No pulses nada si el ordenador está encendido. Si quieres una ahora, pulsa Mandar una.",
+      ejemplo: "turno",
+      cmds: ["turno"],
+      actions: [{ label: "Mandar una", cmd: "turno" }]
+    },
+    {
+      id: "hecho", group: "trabajador", name: "Hecho", role: "A las 20:00", shirt: "#af7ac5",
+      que: "Hecho, a las 20:00, cierra el día: ofertas aceptadas, rechazadas, euros y lo que queda.",
+      como: "Se manda solo si el ordenador está encendido. Ver el cierre lo enseña ahora. Tachas una tarea de la lista con hecho y la frase, no con este botón.",
+      ejemplo: "hecho",
+      cmds: ["hecho"],
+      actions: [{ label: "Ver el cierre", cmd: "hecho" }]
+    },
+    {
+      id: "casa", group: "trabajador", name: "Casa", role: "A las 8:30", shirt: "#48c9b0",
+      que: "Casa, a las 8:30, junta los avisos de hoy, la lista abierta y los gastos de hoy. No llama a la inteligencia artificial.",
+      como: "Se manda sola. Ver la casa lo enseña ahora. Los avisos, la lista y los gastos se siguen anotando como siempre.",
+      ejemplo: "casa",
+      cmds: ["casa"],
+      actions: [{ label: "Ver la casa", cmd: "casa" }]
+    },
+    {
       id: "reloj", group: "gadget", name: "Reloj", role: "Avisos", toy: "clock",
       que: "El reloj guarda avisos en este ordenador. Suenan aquí y en Telegram.",
       como: "Escribe la hora y qué tienes que hacer. Ver avisos los lista. cancelar aviso 1 borra el número 1.",
