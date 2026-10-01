@@ -124,8 +124,8 @@
     prefix: "who-", coreId: "core", stateId: "core-state", coreName: "NÚCLEO", stateText: "En casa, quieto",
     town: true,
     liveBase: /^https:\/\//.test(first.live || "") ? first.live.replace(/\/$/, "") : null,
-    feed: Array.isArray(first.ev) ? { events: first.ev } : null,
-    offlineText: first.live ? "Sin directo · enciende Tailscale" : "Sin directo",
+    feed: Array.isArray(first.ev) ? { events: first.ev, agents: first.ag || {}, busy: first.bz || {} } : null,
+    offlineText: first.at ? "Foto de las " + String(first.at).slice(11, 16) + " · reabre para ver lo nuevo" : "Sin directo",
     hudExtra: document.getElementById("stats"),
     onPick: function (it) { openSheet(it); },
     onCore: function () { RadiaGuia.open("pueblo-mini"); }
