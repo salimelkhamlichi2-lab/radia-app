@@ -2,6 +2,11 @@
 (function (w) {
   var ITEMS = [
     {
+      cuando: "1 de octubre, noche",
+      titulo: "Ya trabajan solos, de verdad",
+      texto: "Ahora tus ayudantes tienen turnos. Si hay algo que hacer, lo hacen: Radar busca, Guía pone la frase, Creador piensa y Lente revisa, Juego diseña. Si no hay nada, descansan y no gastan. De noche duermen. Lo ves en el pueblo y en la lista Lo último que han hecho."
+    },
+    {
       cuando: "1 de octubre, 17:15",
       titulo: "Nueva pantalla: la ciudad",
       texto: "Arriba: la hora, el clima y cuántos trabajan. A los lados: los gadgets. En el centro, 5 salas de color: Dinero, Ideas, Casa, Preguntar y Taller. El que trabaja brilla y se mueve. El que no, está quieto. Toca un muñeco para usarlo. Igual en el PC y en el móvil."

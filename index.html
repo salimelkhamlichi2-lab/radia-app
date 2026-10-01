@@ -59,7 +59,7 @@
   <header>
     <div>
       <h1>RADIA</h1>
-      <div class="sub" id="at">Cada sala es un equipo. El que brilla, trabaja.</div>
+      <div class="sub" id="at">Tu pueblo de ayudantes, en directo.</div>
     </div>
     <button type="button" class="linkish" id="b-guia">Tutoriales</button>
   </header>
@@ -94,6 +94,7 @@
 
 <script src="guia.js"></script>
 <script src="cambios.js"></script>
+<script src="pueblo.js"></script>
 <script src="ciudad.js"></script>
 <script>
   RadiaGuia.init({ page: "mini", store: "radia-guia-mini" });
@@ -118,11 +119,16 @@
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
     });
   }
+  var first = readState() || {};
   RadiaCiudad.build(document.getElementById("ciudad"), {
     prefix: "who-", coreId: "core", stateId: "core-state", coreName: "NÚCLEO", stateText: "En casa, quieto",
+    town: true,
+    liveBase: /^https:\/\//.test(first.live || "") ? first.live.replace(/\/$/, "") : null,
+    feed: Array.isArray(first.ev) ? { events: first.ev } : null,
+    offlineText: first.live ? "Sin directo · enciende Tailscale" : "Sin directo",
     hudExtra: document.getElementById("stats"),
     onPick: function (it) { openSheet(it); },
-    onCore: function () { RadiaGuia.open("ciudad-mini"); }
+    onCore: function () { RadiaGuia.open("pueblo-mini"); }
   });
 
   function readState() {

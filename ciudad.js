@@ -101,7 +101,8 @@
         '<div class="rc-now" id="rc-now"></div>' +
       '</div>' +
       '<aside class="rc-dock rc-dock-l">' + gads.slice(0, half).map(function (it) { return gadget(it, o); }).join("") + '</aside>' +
-      '<div class="rc-salas">' + groups.filter(function (g) { return g.list.length; }).map(function (g) { return sala(g.s, g.list, o); }).join("") + '</div>' +
+      (o.town ? '<div class="rc-town" id="rc-town"></div>' : '') +
+      '<div class="rc-salas"' + (o.town ? ' hidden' : '') + '>' + groups.filter(function (g) { return g.list.length; }).map(function (g) { return sala(g.s, g.list, o); }).join("") + '</div>' +
       '<aside class="rc-dock rc-dock-r">' + gads.slice(half).map(function (it) { return gadget(it, o); }).join("") + '</aside></div>';
 
     if (o.hudExtra) root.querySelector(".rc-hud").appendChild(o.hudExtra);
@@ -121,7 +122,7 @@
         var n = 0;
         g.list.forEach(function (it) {
           var el = $(o.prefix + it.id);
-          if (el && el.classList.contains("busy")) n++;
+          if (el && (el.classList.contains("busy") || el.classList.contains("pbusy"))) n++;
         });
         total += g.list.length; busy += n;
         var c = $("rc-count-" + g.s.id);
@@ -156,7 +157,17 @@
     setInterval(tick, 10000);
     weather();
     setInterval(weather, 20 * 60000);
-    return { recount: recount };
+    var town = null;
+    if (o.town && w.RadiaPueblo) {
+      town = w.RadiaPueblo.mount($("rc-town"), {
+        items: items, salas: SALAS, coreName: o.coreName, base: o.liveBase, feed: o.feed, offlineText: o.offlineText,
+        maxHeight: o.townMaxHeight,
+        isBusy: function (id) { var el = $(o.prefix + id); return !!(el && el.classList.contains("busy")); },
+        mark: function (id, on) { var el = $(o.prefix + id); if (el && el.classList.contains("pbusy") !== on) el.classList.toggle("pbusy", on); },
+        onPick: function (it) { if (o.onPick) o.onPick(it); }
+      });
+    }
+    return { recount: recount, town: town };
   }
 
   function paintWx(v) {
@@ -239,6 +250,8 @@
     '.rc-toy.heart{border-radius:50%;background:#ff5d73;box-shadow:0 0 8px rgba(255,93,115,.6)}' +
     '.rc-g.busy .rc-toy{animation:rc-wob .8s ease-in-out infinite}' +
     '@keyframes rc-wob{50%{transform:translateY(-4px) rotate(-8deg)}}' +
+    '.rc-town{grid-area:salas;min-width:0}' +
+    '.rc-salas[hidden]{display:none!important}' +
     '.rc-salas{grid-area:salas;display:grid;grid-template-columns:minmax(0,1fr);gap:12px;min-width:0}' +
     '.rc-sala{min-width:0;padding:10px;border:1px solid var(--c2);border-radius:16px;background:linear-gradient(180deg,rgba(10,14,28,.9),rgba(6,9,20,.9));box-shadow:inset 0 0 22px var(--c3)}' +
     '.rc-sala.live{border-color:var(--c);box-shadow:0 0 22px var(--c2),inset 0 0 26px var(--c3)}' +

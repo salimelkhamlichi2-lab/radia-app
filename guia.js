@@ -40,16 +40,16 @@
       ejemplo: "hecho"
     },
     {
-      id: "ciudad-pc", page: "pc", group: "meta", name: "Tu ciudad",
-      que: "Esto es RADIA en tu ordenador, como una ciudad. Cada sala de color es un equipo: Dinero, Ideas, Casa, Preguntar y Taller. A los lados están los gadgets: reloj, clima, notas.",
-      como: "El que trabaja brilla y se mueve. El que no, está quieto. Toca un muñeco para ver qué hace y usarlo. Arriba ves la hora, el clima y cuántos trabajan.",
-      ejemplo: "Pulsa Radar y luego Buscar ahora."
+      id: "pueblo-pc", page: "pc", group: "meta", name: "Tu pueblo",
+      que: "Esto es RADIA: un pueblo donde viven tus ayudantes. Cada edificio de color es un equipo: Dinero, Ideas, Casa, Preguntar y Taller.",
+      como: "Cuando hay trabajo de verdad, van a su mesa y su pantalla brilla. Cuando se pasan el trabajo, llevan un paquete. Si no hay nada, pasean o van al café. De noche duermen. Abajo ves lo último que han hecho.",
+      ejemplo: "Toca un muñeco para ver qué hace."
     },
     {
-      id: "ciudad-mini", page: "mini", group: "meta", name: "La mini app",
-      que: "Esto es RADIA en el móvil, como una ciudad. Arriba: hora, clima y gadgets. Debajo, las salas de color: Dinero, Ideas, Casa, Preguntar y Taller.",
-      como: "El que trabaja brilla y se mueve. El que no, está quieto. Toca un muñeco, lee para qué sirve y pulsa el botón. Se lo lleva Telegram.",
-      ejemplo: "Pulsa Clima. No tienes que escribir nada."
+      id: "pueblo-mini", page: "mini", group: "meta", name: "Tu pueblo",
+      que: "Esto es RADIA en el móvil: un pueblo donde viven tus ayudantes. Cada edificio de color es un equipo.",
+      como: "Si trabajan, van a su mesa y su pantalla brilla. Si no hay nada, descansan. Pulsa Acercar para verlos de cerca. Toca a uno para darle una orden.",
+      ejemplo: "Toca a Radar."
     },
     {
       id: "radar", group: "trabajador", name: "Radar", role: "Busca clientes", money: true, shirt: "#6fbf73",
