@@ -3,6 +3,11 @@
   var ITEMS = [
     {
       cuando: "1 de octubre, por la tarde",
+      titulo: "Por la tarde no llueven ofertas",
+      texto: "Turno ya no manda una cada media hora. Radar, cuando busca solo, guarda los clientes y no te escribe. A las 20:00 Hecho cierra el día y te deja hasta 3, con la frase lista para copiar. Aceptar guarda. Rechazar quita. Tú la envías: RADIA no tiene tu Instagram ni tu foro. Si quieres una ahora, escribe turno. Si quieres ver las frases sin mandarlas, escribe hecho."
+    },
+    {
+      cuando: "1 de octubre, por la tarde",
       titulo: "Creador, Guía, Ficha, Turno, Hecho y Casa",
       texto: "Creador propone una idea cada hora, de 9 a 20, solo si no hay otra esperando. Lente la mira. Si vale, te llega por Telegram con Aceptar y Rechazar. Aceptar la pone en cola para Cursor. No la construye sola. Guía es la frase de las ofertas. Ficha enseña un cliente. Turno manda una oferta cada media hora en ese horario. Hecho cierra el día a las 20:00. Casa, a las 8:30, junta avisos, lista y gastos. Ciérrala y ábrela otra vez con Abrir RADIA para ver a la gente nueva y los tutoriales."
     },

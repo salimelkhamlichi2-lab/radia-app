@@ -205,17 +205,17 @@
       ]
     },
     {
-      id: "turno", group: "trabajador", name: "Turno", role: "Cada media hora", shirt: "#f5b041",
-      que: "Turno manda una sola oferta nueva por Telegram, cada media hora de 9 a 20. Tú pulsas Aceptar o Rechazar.",
-      como: "No pulses nada si el ordenador está encendido. Si quieres una ahora, pulsa Mandar una.",
+      id: "turno", group: "trabajador", name: "Turno", role: "Una, si la pides", shirt: "#f5b041",
+      que: "Turno manda una sola oferta por Telegram, solo cuando tú la pides. Por la tarde no te escribe solo.",
+      como: "Si quieres una ahora, pulsa Mandar una. A las 20:00, Hecho te deja hasta 3 con la frase lista para copiar.",
       ejemplo: "turno",
       cmds: ["turno"],
       actions: [{ label: "Mandar una", cmd: "turno" }]
     },
     {
       id: "hecho", group: "trabajador", name: "Hecho", role: "A las 20:00", shirt: "#af7ac5",
-      que: "Hecho, a las 20:00, cierra el día: ofertas aceptadas, rechazadas, euros y lo que queda.",
-      como: "Se manda solo si el ordenador está encendido. Ver el cierre lo enseña ahora. Tachas una tarea de la lista con hecho y la frase, no con este botón.",
+      que: "Hecho, a las 20:00, cierra el día y te deja hasta 3 ofertas. En cada una está la frase para copiar y enviar tú.",
+      como: "Se manda solo si el ordenador está encendido. Ver el cierre enseña las frases ahora, sin mandarlas a Telegram. Aceptar guarda. Rechazar quita. No se publican solas. Tachas una tarea de la lista con hecho y la frase, no con este botón.",
       ejemplo: "hecho",
       cmds: ["hecho"],
       actions: [{ label: "Ver el cierre", cmd: "hecho" }]
