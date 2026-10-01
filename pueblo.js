@@ -35,6 +35,9 @@
   function hhmm(iso) {
     try { return new Date(iso).toLocaleTimeString("es-ES", { hour: "2-digit", minute: "2-digit", timeZone: "Europe/Madrid" }); } catch (e) { return ""; }
   }
+  function dayOf(d) {
+    try { return d.toLocaleDateString("sv-SE", { timeZone: "Europe/Madrid" }); } catch (e) { return ""; }
+  }
   function esc(s) {
     return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; });
   }
@@ -484,6 +487,29 @@
       if (e && e.what && e.last && Date.now() - Date.parse(e.last) < 90000) return e.what;
       return (a.it.role || "Trabajando") + "…";
     }
+    function statusOf(a) {
+      var id = a.it.id;
+      var mine = feed.events.filter(function (ev) { return (ROOM_OF[ev.who] || ev.who) === id; });
+      var e = feed.agents[id] || {};
+      var now;
+      if (a.mode === "work") now = "Trabajando: " + doing(a);
+      else if (a.mode === "carry") now = "Lleva su trabajo a " + (a.carry && a.carry.to === "tu" ? "ti" : ((byId[a.carry && a.carry.to] || {}).name || "otro"));
+      else if (a.mode === "sleep") now = "Durmiendo hasta las 8:00";
+      else if (e.rest) now = "Descansa: " + e.rest;
+      else if (e.what) now = "Descansa. Lo último: " + e.what;
+      else now = "Descansa: solo trabaja cuando tú se lo pides.";
+      if (!mine.length && e.what && e.last) mine = [{ at: e.last, what: e.what }];
+      var today = dayOf(new Date());
+      var hoy = (e.day === today && e.hoy) || mine.filter(function (ev) { return dayOf(new Date(ev.at)) === today; }).length;
+      return {
+        now: now, busy: a.mode === "work" || a.mode === "carry", hoy: hoy,
+        done: mine.slice(-3).reverse().map(function (ev) { return { at: hhmm(ev.at), what: ev.what || "Hecho" }; })
+      };
+    }
+    function status(id) {
+      var a = agents.filter(function (x) { return x.it.id === id; })[0];
+      return a ? statusOf(a) : null;
+    }
     function restOf(a) {
       var e = feed.agents[a.it.id];
       if (e && e.rest) return e.rest;
@@ -543,7 +569,7 @@
         var d = Math.abs(a.x - lx) + Math.abs(a.y - 8 - ly);
         if (d < bd) { bd = d; best = a; }
       });
-      if (best) { selected = best; if (o.onPick) o.onPick(best.it); return; }
+      if (best) { selected = best; if (o.onPick) o.onPick(best.it, statusOf(best)); return; }
       var tx = Math.floor(lx / T), ty = Math.floor(ly / T);
       var hit = null;
       Object.keys(L.rooms).forEach(function (sid) { var r = L.rooms[sid]; if (desks[sid] && tx >= r[0] && tx < r[0] + r[2] && ty >= r[1] && ty < r[1] + r[3]) hit = salaById[sid]; });
@@ -620,7 +646,7 @@
     poll();
     setInterval(poll, o.every || 4000);
     requestAnimationFrame(frame);
-    return { resize: resize, live: function () { return liveOk; } };
+    return { resize: resize, status: status, live: function () { return liveOk; } };
   }
 
   var css = '' +
@@ -643,10 +669,25 @@
     '.pt-feed ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:3px}' +
     '.pt-feed li{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}' +
     '.pt-feed time{color:#6f7d96;margin-right:6px;font-variant-numeric:tabular-nums}' +
-    '.pt-feed i{font-style:normal;color:#ffd166}.pt-feed .pt-empty{color:#6f7d96}';
+    '.pt-feed i{font-style:normal;color:#ffd166}.pt-feed .pt-empty{color:#6f7d96}' +
+    '.pt-now{margin:0 0 10px;padding:10px 12px;border-radius:12px;border:1px solid #2c3a60;background:rgba(10,14,28,.9);color:#eaf4ff;font-size:14px;line-height:1.4}' +
+    '.pt-now.on{border-color:rgba(57,245,154,.6);box-shadow:0 0 14px rgba(57,245,154,.18)}' +
+    '.pt-now>b{display:flex;gap:8px;align-items:flex-start;font-weight:600}' +
+    '.pt-now>b i{flex:none;width:9px;height:9px;margin-top:6px;border-radius:50%;background:#6f7d96}.pt-now.on>b i{background:#39f59a;box-shadow:0 0 8px #39f59a}' +
+    '.pt-now em{display:block;margin-top:6px;font-style:normal;font-size:12px;color:#8fa6c8}' +
+    '.pt-now ol{list-style:none;margin:4px 0 0;padding:0;font-size:13px;color:#cfe0f2}' +
+    '.pt-now time{color:#6f7d96;margin-right:6px;font-variant-numeric:tabular-nums}';
   var tag = document.createElement("style");
   tag.textContent = css;
   document.head.appendChild(tag);
 
-  w.RadiaPueblo = { mount: mount };
+  function nowHtml(st) {
+    if (!st) return "";
+    var list = st.done.length
+      ? '<em>' + (st.hoy ? 'Hoy ha hecho ' + st.hoy + (st.hoy === 1 ? " cosa" : " cosas") : 'Hoy aún nada') + '. Lo último:</em><ol>' + st.done.map(function (d) { return '<li><time>' + esc(d.at) + '</time>' + esc(d.what) + '</li>'; }).join("") + '</ol>'
+      : '<em>Hoy todavía no ha hecho nada.</em>';
+    return '<div class="pt-now' + (st.busy ? " on" : "") + '"><b><i></i><span>' + esc(st.now) + '</span></b>' + list + '</div>';
+  }
+
+  w.RadiaPueblo = { mount: mount, nowHtml: nowHtml };
 })(window);

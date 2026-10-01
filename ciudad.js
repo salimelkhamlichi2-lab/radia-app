@@ -108,7 +108,7 @@
     if (o.hudExtra) root.querySelector(".rc-hud").appendChild(o.hudExtra);
     items.forEach(function (it) {
       var el = $(o.prefix + it.id);
-      if (el && o.onPick) el.addEventListener("click", function () { o.onPick(it); });
+      if (el && o.onPick) el.addEventListener("click", function () { o.onPick(it, town && town.status ? town.status(it.id) : null); });
     });
     var core = $(o.coreId || "rc-core");
     if (core && o.onCore) core.addEventListener("click", o.onCore);
@@ -164,7 +164,7 @@
         maxHeight: o.townMaxHeight,
         isBusy: function (id) { var el = $(o.prefix + id); return !!(el && el.classList.contains("busy")); },
         mark: function (id, on) { var el = $(o.prefix + id); if (el && el.classList.contains("pbusy") !== on) el.classList.toggle("pbusy", on); },
-        onPick: function (it) { if (o.onPick) o.onPick(it); }
+        onPick: function (it, st) { if (o.onPick) o.onPick(it, st); }
       });
     }
     return { recount: recount, town: town };

@@ -2,6 +2,11 @@
 (function (w) {
   var ITEMS = [
     {
+      cuando: "1 de octubre, 19:45",
+      titulo: "Toca un muñeco: te dice qué hace",
+      texto: "Arriba de su ficha pone qué está haciendo ahora o por qué descansa, y las últimas cosas que ha hecho hoy con la hora. En el móvil es la foto del momento en que abriste RADIA."
+    },
+    {
       cuando: "1 de octubre, noche",
       titulo: "Ya trabajan solos, de verdad",
       texto: "Ahora tus ayudantes tienen turnos. Si hay algo que hacer, lo hacen: Radar busca, Guía pone la frase, Creador piensa y Lente revisa, Juego diseña. Si no hay nada, descansan y no gastan. De noche duermen. Lo ves en el pueblo y en la lista Lo último que han hecho."

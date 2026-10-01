@@ -84,6 +84,7 @@
     <div class="card">
       <div class="tag" id="s-tag"></div>
       <h3 id="s-name"></h3>
+      <div id="s-now"></div>
       <p id="s-que"></p>
       <div class="btns" id="s-actions"></div>
       <div id="s-form"></div>
@@ -120,14 +121,14 @@
     });
   }
   var first = readState() || {};
-  RadiaCiudad.build(document.getElementById("ciudad"), {
+  var city = RadiaCiudad.build(document.getElementById("ciudad"), {
     prefix: "who-", coreId: "core", stateId: "core-state", coreName: "NÚCLEO", stateText: "En casa, quieto",
     town: true,
     liveBase: /^https:\/\//.test(first.live || "") ? first.live.replace(/\/$/, "") : null,
     feed: Array.isArray(first.ev) ? { events: first.ev, agents: first.ag || {}, busy: first.bz || {} } : null,
     offlineText: first.at ? "Foto de las " + String(first.at).slice(11, 16) + " · reabre para ver lo nuevo" : "Sin directo",
     hudExtra: document.getElementById("stats"),
-    onPick: function (it) { openSheet(it); },
+    onPick: function (it, st) { openSheet(it, st); },
     onCore: function () { RadiaGuia.open("pueblo-mini"); }
   });
 
@@ -168,10 +169,15 @@
   }
 
   var current = null;
-  function openSheet(it) {
+  setInterval(function () {
+    if (!current || current.group === "gadget" || !city.town || !document.getElementById("sheet").classList.contains("on")) return;
+    document.getElementById("s-now").innerHTML = RadiaPueblo.nowHtml(city.town.status(current.id));
+  }, 4000);
+  function openSheet(it, st) {
     current = it;
     document.getElementById("s-tag").textContent = it.group === "gadget" ? "Gadget" : "Trabajador";
     document.getElementById("s-name").textContent = it.name;
+    document.getElementById("s-now").innerHTML = it.group === "gadget" ? "" : RadiaPueblo.nowHtml(st);
     document.getElementById("s-que").textContent = it.que;
     var box = document.getElementById("s-actions");
     box.innerHTML = "";
