@@ -115,6 +115,65 @@
       actions: []
     },
     {
+      id: "claro", group: "trabajador", name: "Claro", role: "Suena humano", money: true, shirt: "#f2c14e",
+      que: "Claro reescribe el mensaje que vas a mandar a un cliente para que suene corto y a persona.",
+      como: "Pega el mensaje largo. Te devuelve otro listo para copiar. No lo envía.",
+      ejemplo: "claro Hola, te ofrezco automatizar los pedidos por 250 euros",
+      cmds: ["claro "],
+      actions: [{ label: "Reescribir", ask: "El mensaje", prefix: "claro ", placeholder: "Hola, te ofrezco automatizar los pedidos por 250 euros" }]
+    },
+    {
+      id: "contesta", group: "trabajador", name: "Contesta", role: "Si te responden", money: true, shirt: "#7ec8e3",
+      que: "Contesta te explica en español qué te piden y te deja la respuesta corta, en el idioma de esa persona.",
+      como: "Pega lo que te escribieron. Si está en la lista: lead 2 respondio y el texto.",
+      ejemplo: "contesta how much would this cost?",
+      cmds: ["contesta "],
+      actions: [{ label: "Responder", ask: "Lo que te escribió", prefix: "contesta ", placeholder: "how much would this cost?" }]
+    },
+    {
+      id: "cobro", group: "trabajador", name: "Cobro", role: "Pedir el pago", money: true, shirt: "#8fd18a",
+      que: "Cobro anota que el trabajo está cerrado y te escribe el mensaje para pedir el dinero.",
+      como: "Escribe el número del cliente y los euros. Una vez, dile cómo te pagan: cobro pago Bizum.",
+      ejemplo: "lead 2 cerrado 250",
+      cmds: ["cobro"],
+      actions: [
+        { label: "Cerrar y cobrar", ask: "Número y euros", prefix: "lead ", placeholder: "2 cerrado 250" },
+        { label: "Cómo me pagan", ask: "Bizum, transferencia...", prefix: "cobro pago ", placeholder: "Bizum" }
+      ]
+    },
+    {
+      id: "antes", group: "trabajador", name: "Antes", role: "Antes del precio", money: true, shirt: "#e7a0b0",
+      que: "Antes te da tres preguntas para el cliente, para no poner un precio a ciegas.",
+      como: "Cuéntale el problema. Cuando te contesten, usa Presupuesto.",
+      ejemplo: "antes avisar los pedidos de Instagram",
+      cmds: ["antes "],
+      actions: [{ label: "Tres preguntas", ask: "Problema del cliente", prefix: "antes ", placeholder: "avisar los pedidos de Instagram" }]
+    },
+    {
+      id: "manana", group: "trabajador", name: "Mañana", role: "A las 8:00", shirt: "#c4b5fd",
+      que: "A las 8, un solo texto: clientes sin contestar, avisos de hoy y si Cursor terminó algo. Las noticias las sigue mandando Alba.",
+      como: "No pulses nada si el ordenador está encendido a esa hora. Si quieres verlo ahora, pulsa Ver el parte.",
+      ejemplo: "manana",
+      cmds: ["manana"],
+      actions: [{ label: "Ver el parte", cmd: "manana" }]
+    },
+    {
+      id: "semana", group: "trabajador", name: "Semana", role: "Domingo 21:00", shirt: "#f0a06a",
+      que: "El domingo a las 21:00 resume la semana: clientes, mensajes, respuestas, euros y qué hacer el lunes.",
+      como: "No pulses nada. Si quieres ver la semana ahora, pulsa Ver la semana.",
+      ejemplo: "semana",
+      cmds: ["semana"],
+      actions: [{ label: "Ver la semana", cmd: "semana" }]
+    },
+    {
+      id: "vigia", group: "trabajador", name: "Vigía", role: "Si se apaga", shirt: "#e07b6a",
+      que: "Vigía te avisa por Telegram si el cerebro se apaga y el ordenador sigue encendido. Si apagas el PC, no puede escribir.",
+      como: "Se enciende solo al entrar en Windows. Pulsa Estado para ver la última mirada.",
+      ejemplo: "vigia",
+      cmds: ["vigia"],
+      actions: [{ label: "Estado", cmd: "vigia" }]
+    },
+    {
       id: "reloj", group: "gadget", name: "Reloj", role: "Avisos", toy: "clock",
       que: "El reloj guarda avisos en este ordenador. Suenan aquí y en Telegram.",
       como: "Escribe la hora y qué tienes que hacer. Ver avisos los lista. cancelar aviso 1 borra el número 1.",

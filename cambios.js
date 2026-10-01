@@ -4,7 +4,47 @@
     {
       cuando: "1 de octubre, de madrugada",
       titulo: "Para cuando despiertes",
-      texto: "No he dejado una inteligencia artificial entrenando durante horas. Entrenar un modelo aquí no te crea un trabajador nuevo: gasta el cupo del día y, al cerrar el chat, se para. Lo que sí queda hecho, sin que pulses nada, es este apartado y el comando diario."
+      texto: "Esta noche entraron siete trabajadores y se arregló la mini app: el dibujo ya no tapa el nombre del botón. Ciérrala y ábrela otra vez con Abrir RADIA para verlo."
+    },
+    {
+      cuando: "Hecho esta noche",
+      titulo: "Los botones ya se leen",
+      texto: "La persona y el gadget estaban sueltos encima del botón y tapaban el nombre. Ahora cada uno está en su caja, encima del nombre, y el nombre se puede pulsar."
+    },
+    {
+      cuando: "Hecho esta noche",
+      titulo: "Claro",
+      texto: "Pegas el mensaje largo y te lo devuelve corto y humano. No lo envía. En el móvil es un trabajador. En Telegram: claro y el texto."
+    },
+    {
+      cuando: "Hecho esta noche",
+      titulo: "Contesta",
+      texto: "Cuando alguien te responde, pegas lo que escribió. Te dice en español qué pide y te deja la respuesta para copiar, en su idioma. También: lead 2 respondio y el texto."
+    },
+    {
+      cuando: "Hecho esta noche",
+      titulo: "Cobro",
+      texto: "lead 2 cerrado 250 anota el dinero y te escribe el mensaje para cobrar. Una vez puedes decir cómo te pagan: cobro pago Bizum."
+    },
+    {
+      cuando: "Hecho esta noche",
+      titulo: "Antes",
+      texto: "Antes de poner un precio, te da tres preguntas para el cliente. Escribe antes y el problema. Luego usas Presupuesto."
+    },
+    {
+      cuando: "Hecho esta noche",
+      titulo: "Mañana",
+      texto: "A las 8, si el ordenador está encendido, un solo texto: clientes sin contestar, avisos de hoy y si Cursor terminó algo. Alba sigue mandando las noticias aparte. Puedes probarlo ya con manana."
+    },
+    {
+      cuando: "Hecho esta noche",
+      titulo: "Semana",
+      texto: "El domingo a las 21:00 resume la semana y dice qué hacer el lunes. Puedes probarlo ya con semana."
+    },
+    {
+      cuando: "Hecho esta noche",
+      titulo: "Vigía",
+      texto: "Si el cerebro se apaga y el ordenador sigue encendido, te escribe una vez por Telegram. Si apagas el PC, no puede avisar. Se enciende solo al entrar en Windows."
     },
     {
       cuando: "Hecho",
@@ -22,22 +62,7 @@
       texto: "Se llama Cambios. En el ordenador es una pestaña. En el móvil está debajo de los gadgets. En Telegram escribes diario."
     },
     {
-      cuando: "Cuando digas que sí",
-      titulo: "Claro",
-      texto: "Útil de verdad. Reescribe el mensaje que vas a mandar a un cliente para que suene corto y humano. No lo he creado: cada uso llama a la IA y quería tu sí."
-    },
-    {
-      cuando: "Cuando digas que sí",
-      titulo: "Mañana",
-      texto: "A las 8, además de las noticias, un solo texto con tus clientes sin contestar, los avisos del día y si Cursor terminó algo. No lo he creado para no despertarte con un mensaje nuevo sin pedirlo."
-    },
-    {
-      cuando: "Cuando digas que sí",
-      titulo: "Vigía",
-      texto: "Te avisa por Telegram si el cerebro del PC se apaga. Útil si dejas el ordenador encendido. No lo he creado: hay que probar que no avise de más."
-    },
-    {
-      cuando: "No merece la pena ahora",
+      cuando: "Sigue igual",
       titulo: "Entrenar agentes horas con Grok",
       texto: "Un par de horas de Grok en automático no deja un empleado más listo dentro de RADIA. Deja texto y código. Las salas que ya tienes (Radar, Presupuesto, Lente, Cursor) ya trabajan cuando tú las llamas, o solas a su hora (Alba a las 8, Seguimiento a las 9, Radar varias veces al día)."
     }
