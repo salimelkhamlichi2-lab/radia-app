@@ -3,6 +3,14 @@
 (function (w) {
   var ITEMS = [
     {
+      id: "mapa", group: "gadget", name: "Mapa", role: "Empieza aquí", toy: "note",
+      que: "El mapa dice quién pasa el trabajo a quién. Empieza por aquí.",
+      como: "Léelo de arriba abajo. Dinero, casa, ideas nuevas y juego van por caminos distintos. Si una persona no la entiendes, escribe ayuda y su nombre.",
+      ejemplo: "mapa",
+      cmds: ["mapa"],
+      actions: [{ label: "Ver el mapa", cmd: "mapa" }]
+    },
+    {
       id: "inversor", group: "trabajador", name: "Inversor", role: "Mide ideas", shirt: "#f4d35e",
       que: "Inversor mira si una idea puede dejar dinero esta semana, si va sola y qué tienes que hacer tú.",
       como: "Pulsa Ver las 4. Si tienes otra idea, escríbela. No promete el dinero. Si dice que sí, aún tienes que hacer lo que pone en Tu tocas.",

@@ -2,6 +2,11 @@
 (function (w) {
   var ITEMS = [
     {
+      cuando: "1 de octubre, por la tarde",
+      titulo: "Empieza por el mapa",
+      texto: "Escribe mapa. Ahí está quién pasa el trabajo a quién: Radar guarda, Guía es la frase, a las 20:00 Hecho te manda hasta 3, tú aceptas y copias. Casa es la mañana. Creador propone y Lente mira. Juego diseña y no cobra. Si una no la entiendes: ayuda y su nombre."
+    },
+    {
       cuando: "1 de octubre, a las cinco",
       titulo: "Inversor mide las ideas",
       texto: "Escribe inversor. Hay 4 ideas medidas: mandar las ofertas puede dejar dinero esta semana si las envías tú. TikTok, una cuenta nueva y más armas no facturan esta semana solos. Higgsfield es una web de fuera: subes un dibujo de la carpeta Juego y te hace un vídeo. RADIA no entra ahí ni crea Gmail ni TikTok."
