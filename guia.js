@@ -176,6 +176,14 @@
       ]
     },
     {
+      id: "diario", group: "gadget", name: "Diario", role: "Cambios", toy: "note",
+      que: "Diario es el resumen de lo que se ha construido en RADIA. No llama a la inteligencia artificial.",
+      como: "Escribe diario. En el ordenador también está la pestaña Cambios. En el móvil, el mismo texto está debajo de los gadgets.",
+      ejemplo: "diario",
+      cmds: ["diario"],
+      actions: [{ label: "Ver el resumen", cmd: "diario" }]
+    },
+    {
       id: "pulse", group: "gadget", name: "Estado", role: "¿Sigue despierto?", toy: "heart",
       que: "Estado es la foto de RADIA ahora: avisos, clientes y gasto de inteligencia artificial. Ping solo comprueba que el cerebro responde.",
       como: "Pulsa Estado si quieres la foto. Ping si solo quieres saber si está encendido.",

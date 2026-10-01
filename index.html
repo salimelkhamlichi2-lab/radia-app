@@ -140,6 +140,11 @@
     <p class="hint">Utilidades del día. El tiempo, los avisos, las notas. No son personas.</p>
     <div class="grid" id="grid-gad"></div>
   </section>
+  <section class="zone" id="zona-cambios">
+    <h2>Cambios de desarrollo</h2>
+    <p class="hint">Lo que quedó hecho sin que pulses nada. El mismo texto está en el ordenador, pestaña Cambios.</p>
+    <div id="cambios-list"></div>
+  </section>
   <section class="orders">
     <h2>Encargos de Cursor</h2>
     <div id="orders">Sin datos todavía. Ábrela desde Telegram para verlos.</div>
@@ -158,8 +163,10 @@
   </div>
 
 <script src="guia.js"></script>
+<script src="cambios.js"></script>
 <script>
   RadiaGuia.init({ page: "mini", store: "radia-guia-mini" });
+  if (window.RadiaCambios) RadiaCambios.fill("cambios-list");
   var tg = window.Telegram && window.Telegram.WebApp;
   if (tg) { tg.ready(); tg.expand(); try { tg.setHeaderColor("#12140f"); tg.setBackgroundColor("#12140f"); } catch (e) {} }
   function telegramHere() {
