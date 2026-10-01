@@ -2,6 +2,11 @@
 (function (w) {
   var ITEMS = [
     {
+      cuando: "1 de octubre, a las cinco",
+      titulo: "Inversor mide las ideas",
+      texto: "Escribe inversor. Hay 4 ideas medidas: mandar las ofertas puede dejar dinero esta semana si las envías tú. TikTok, una cuenta nueva y más armas no facturan esta semana solos. Higgsfield es una web de fuera: subes un dibujo de la carpeta Juego y te hace un vídeo. RADIA no entra ahí ni crea Gmail ni TikTok."
+    },
+    {
       cuando: "1 de octubre, a las cuatro",
       titulo: "Juego ya diseña",
       texto: "Escribe juego armas o juego enemigos. Te deja 4 fichas cortas y las guarda en este PC. juego dibujo y lo que quieres ver te deja cómo dibujarlo. En el escritorio, carpeta Juego, hay 3 dibujos de ejemplo. No es un juego para jugar: es el diseño."

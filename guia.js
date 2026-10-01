@@ -3,6 +3,17 @@
 (function (w) {
   var ITEMS = [
     {
+      id: "inversor", group: "trabajador", name: "Inversor", role: "Mide ideas", shirt: "#f4d35e",
+      que: "Inversor mira si una idea puede dejar dinero esta semana, si va sola y qué tienes que hacer tú.",
+      como: "Pulsa Ver las 4. Si tienes otra idea, escríbela. No promete el dinero. Si dice que sí, aún tienes que hacer lo que pone en Tu tocas.",
+      ejemplo: "inversor",
+      cmds: ["inversor"],
+      actions: [
+        { label: "Ver las 4", cmd: "inversor" },
+        { label: "Medir una idea", ask: "La idea", prefix: "inversor ", placeholder: "un TikTok del anillo cada día" }
+      ]
+    },
+    {
       id: "juego", group: "trabajador", name: "Juego", role: "Diseña", shirt: "#b07cff",
       que: "Juego diseña armas, enemigos y cómo se dibujan. Es un survivor corto, visto desde arriba. No es un juego para jugar todavía.",
       como: "1. Pulsa 4 armas o 4 enemigos. 2. Lee las 4 fichas. 3. Quedan guardadas en este PC. Para un dibujo: juego dibujo y lo que quieres ver.",
