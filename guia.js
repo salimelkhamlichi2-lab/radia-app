@@ -3,6 +3,18 @@
 (function (w) {
   var ITEMS = [
     {
+      id: "juego", group: "trabajador", name: "Juego", role: "Diseña", shirt: "#b07cff",
+      que: "Juego diseña armas, enemigos y cómo se dibujan. Es un survivor corto, visto desde arriba. No es un juego para jugar todavía.",
+      como: "1. Pulsa 4 armas o 4 enemigos. 2. Lee las 4 fichas. 3. Quedan guardadas en este PC. Para un dibujo: juego dibujo y lo que quieres ver.",
+      ejemplo: "juego armas",
+      cmds: ["juego"],
+      actions: [
+        { label: "4 armas", cmd: "juego armas" },
+        { label: "4 enemigos", cmd: "juego enemigos" },
+        { label: "Cómo se usa", cmd: "juego" }
+      ]
+    },
+    {
       id: "esta-noche", group: "meta", name: "Esta noche",
       que: "Ya puedes aceptar ofertas.",
       como: "1. Abre Telegram. 2. Aceptar guarda la oferta. Rechazar la quita. 3. Copia la frase y mándasela tú al cliente. A las 20:00 te llegan hasta 3.",

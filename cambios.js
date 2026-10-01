@@ -2,6 +2,11 @@
 (function (w) {
   var ITEMS = [
     {
+      cuando: "1 de octubre, a las cuatro",
+      titulo: "Juego ya diseña",
+      texto: "Escribe juego armas o juego enemigos. Te deja 4 fichas cortas y las guarda en este PC. juego dibujo y lo que quieres ver te deja cómo dibujarlo. En el escritorio, carpeta Juego, hay 3 dibujos de ejemplo. No es un juego para jugar: es el diseño."
+    },
+    {
       cuando: "1 de octubre, por la tarde",
       titulo: "Esta noche, en 3 pasos",
       texto: "1. Abre las ofertas de Telegram. 2. Aceptar guarda. Rechazar quita. 3. Copia la frase y mándasela tú al cliente. A las 20:00 te llegan hasta 3. Si quieres verlas antes, escribe hecho. RADIA no se las envía: no tiene tu cuenta."
