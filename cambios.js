@@ -3,6 +3,11 @@
   var ITEMS = [
     {
       cuando: "1 de octubre, por la tarde",
+      titulo: "Esta noche, en 3 pasos",
+      texto: "1. Abre las ofertas de Telegram. 2. Aceptar guarda. Rechazar quita. 3. Copia la frase y mándasela tú al cliente. A las 20:00 te llegan hasta 3. Si quieres verlas antes, escribe hecho. RADIA no se las envía: no tiene tu cuenta."
+    },
+    {
+      cuando: "1 de octubre, por la tarde",
       titulo: "Por la tarde no llueven ofertas",
       texto: "Turno ya no manda una cada media hora. Radar, cuando busca solo, guarda los clientes y no te escribe. A las 20:00 Hecho cierra el día y te deja hasta 3, con la frase lista para copiar. Aceptar guarda. Rechazar quita. Tú la envías: RADIA no tiene tu Instagram ni tu foro. Si quieres una ahora, escribe turno. Si quieres ver las frases sin mandarlas, escribe hecho."
     },

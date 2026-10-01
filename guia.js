@@ -3,6 +3,12 @@
 (function (w) {
   var ITEMS = [
     {
+      id: "esta-noche", group: "meta", name: "Esta noche",
+      que: "Ya puedes aceptar ofertas.",
+      como: "1. Abre Telegram. 2. Aceptar guarda la oferta. Rechazar la quita. 3. Copia la frase y mándasela tú al cliente. A las 20:00 te llegan hasta 3.",
+      ejemplo: "hecho"
+    },
+    {
       id: "intro-pc", page: "pc", group: "meta", name: "Tu oficina",
       que: "Esto es el cerebro de RADIA en tu ordenador. Arriba están los trabajadores: personas que hacen un trabajo. Abajo están los gadgets: cosas de cada día, como el clima o las notas. No son personas.",
       como: "Pulsa una mesa para ver qué hace. Cuando alguien trabaja, su personaje se mueve. Al terminar, vuelve a su sitio. El botón Tutoriales abre estas explicaciones cuando quieras.",
@@ -16,8 +22,8 @@
     },
     {
       id: "radar", group: "trabajador", name: "Radar", role: "Busca clientes", money: true, shirt: "#6fbf73",
-      que: "Radar busca gente que pide ayuda y te manda la oferta por Telegram. Tú solo pulsas Aceptar o Rechazar.",
-      como: "Revisar ofertas te manda hasta 3. El mensaje dice: esto se puede hacer con lo que ya tienes, te lo añado, ¿te vale? Aceptar la guarda. No se publica sola en Instagram ni en el foro.",
+      que: "Radar busca gente que pide ayuda.",
+      como: "1. A las 20:00 te llegan hasta 3. 2. Aceptar guarda. Rechazar quita. 3. Copias la frase y se la mandas tú.",
       ejemplo: "ofertas",
       cmds: ["radar", "leads", "ofertas"],
       actions: [
